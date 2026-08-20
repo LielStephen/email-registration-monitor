@@ -1,0 +1,12 @@
+{
+  "name": "email-registration-monitor",
+  "private": true,
+  "workspaces": ["apps/*"],
+  "scripts": {
+    "dev": "concurrently \"npm run dev --workspace @monitor/api\" \"npm run dev --workspace @monitor/web\"",
+    "start": "npm run start --workspace @monitor/api",
+    "worker": "npm run worker --workspace @monitor/api",
+    "test": "npm run test --workspace @monitor/api"
+  },
+  "devDependencies": { "concurrently": "^9.1.2" }
+}
