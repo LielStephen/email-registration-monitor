@@ -1,0 +1,21 @@
+{
+  "name": "@monitor/api",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch src/server.js",
+    "start": "node src/server.js",
+    "worker": "node src/jobs/worker.js",
+    "test": "node --test test/**/*.test.js"
+  },
+  "dependencies": {
+    "bullmq": "^5.34.5",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "googleapis": "^144.0.0",
+    "pg": "^8.13.1",
+    "pdf-parse": "^1.1.1",
+    "web-push": "^3.6.7",
+    "xlsx": "^0.18.5"
+  }
+}
