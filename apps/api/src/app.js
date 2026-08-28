@@ -1,0 +1,10 @@
+import cors from 'cors';
+import express from 'express';
+import authRoutes from './routes/auth.js';
+import monitorRoutes from './routes/monitors.js';
+import dashboardRoutes from './routes/dashboard.js';
+const app = express();
+app.use(cors({ origin: process.env.APP_URL || 'http://localhost:5173' })); app.use(express.json({ limit: '1mb' }));
+app.get('/api/health', (_req, res) => res.json({ status: 'ok' })); app.use('/api/auth', authRoutes); app.use('/api/monitors', monitorRoutes); app.use('/api', dashboardRoutes);
+app.use((error, _req, res, _next) => { console.error(error); res.status(400).json({ error: error.message || 'Request failed' }); });
+export default app;
